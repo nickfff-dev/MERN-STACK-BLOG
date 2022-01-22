@@ -2,7 +2,6 @@ import React from "react";
 import './auth.css';
 import axios from 'axios';
 import Signin from "./Signin";
-import Home from "./Home";
 
 
 

@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const path = require('path');
 const MongoClient = require('mongodb')
 const mongoose = require('mongoose');
@@ -25,7 +24,6 @@ const port =  PORT || 5000;
 app.use('/client', express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 app.use(cors());
 
 // You can choose different endpoint like /email, /mail or anything
