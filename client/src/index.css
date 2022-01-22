@@ -1,0 +1,313 @@
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body{
+  background-color: black ;
+  font-family: "Baloo 2", sans-serif;
+ 
+  text-rendering: optimizeLegibility;
+
+  
+}
+#side-drawer {
+  height: 100vh;
+  width: 336px;  /*Ideal width for sidebar accdg to https://forums.envato.com/t/standard-sidebar-width/75633*/
+  top: 0;
+  left: -336px;
+  z-index: 1032;  /*z-index of standard bootstrap navbar is 1030 + 1 offset due to side-drawer-void*/
+  transition: left 0.25s ease;
+  
+}
+
+#side-drawer-void {
+  height: 5%;
+  width: 5%;
+  top: 0;
+  z-index: 1031;  /*z-index of standard bootstrap navbar is 1030*/
+  background: rgba(0,0,0,.6);
+}
+
+
+body > div > nav{
+  background-color: transparent;
+  color: aliceblue;
+
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: transparent;
+  color: black;
+  font-size: 12px;
+  border: none;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content *:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content  {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {color: #000;}
+
+
+.modalhome{
+  background-color: #002f00;
+}
+
+
+.topmenu li{
+
+  list-style: none;
+  display: inline;
+ 
+}
+
+.topmenu > li {
+
+  text-decoration: none;
+ 
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  
+
+}
+
+.topmenu > li > a {
+  
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+ 
+}
+
+
+h1{
+  color: #00fe00;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+h2{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color:#ff016d;
+}
+
+h4{
+  text-align: center;
+  color:#00ffff;
+}
+
+h3{text-align: center;}
+
+
+.heads{
+  background-color: #00ecfd;
+  height: 33px;
+  border: 2px;
+  
+}
+
+dd{
+  color: #888888;
+}
+
+.btm-2{
+  padding-right: 30px;
+}
+
+
+
+
+
+#fineprint{
+  color: white;
+  font-weight: bold;
+  padding-bottom: 30px;
+  font-size: 16px;
+
+}
+
+#myBtn{
+  width: 50px;
+  height: auto;
+  
+
+}
+
+.footertxt{
+  display: inline;
+  text-decoration: none;
+  border: 0px;
+  color:#fff
+}
+
+
+
+.drp{
+ text-align: right;
+}
+
+.drp2{
+  text-align: left;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: auto;
+  background-color: #ff016d;
+  color: #fff;
+  z-index: 100;
+ 
+  font-size:3px;
+  font-size:0.48235294117647rem;
+}
+
+.btms li{
+  display: inline;
+  text-decoration: none;
+  padding: 10px;
+  border: 0px;
+}
+
+.socials li {
+  display: inline;
+  text-decoration: none;
+  border: 0px;
+  padding: 10px;
+  font-size: 20px;
+  
+  
+}
+
+.socials > li > a{
+  color: #fff;
+
+  padding: 10px;
+  
+  
+}
+
+.contact-btn{
+  color: white;
+  background-color: #ff016d;
+}
+.socials > fab{
+  background-color: #ff016d;
+  
+}
+
+.chini{
+  margin-top: 50px;
+  background-color: #ff016d;
+  height: 50px;
+  color: #fff;
+}
+
+.mbili{
+  margin-left: 5px;
+}
+
+.socialf{
+
+  text-align: center;
+}
+
+.card:hover{
+  border: 2px solid #b1d21c;
+
+}
+
+.card{
+  max-width: 540px;
+}
+
+.list-group-item{
+  background-color: #ff016d;
+  color: #00ffff;
+}
+
+
+.list-group{
+  height: 200px;
+}
+
+#side-drawer{
+  height: 200px;
+}
+
+.list-group-item :active{
+  color: #00ffff;
+
+}
+
+#contact-form{
+  color:#ff016d;
+  padding: 5px;
+
+}
+.contacttxt{margin-top: 40px;}
+
+
+.border-left{
+  font-size: 18px;
+  color: #000000;
+  font-weight: bolder;
+}
+
+.body-texts h5{
+  color: #00ffff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.body-texts h3{
+  color: #00ffff;
+  font-weight: bolder;
+}
+
+.contactus{
+  border: 2px solid rgba(255,1,109,0.3);
+  
+  border-radius: 4px;
+}

@@ -1,0 +1,34 @@
+{
+   "name": "mymail-server",
+   "version": "1.0.0",
+   "main": "index.js",
+   "scripts": {
+      "start": "node index.js",
+      "server": "nodemon index.js",
+      "client": "npm start --prefix client",
+      "mongo-server": "mongod  --dbpath ./data/db",
+      "mongo-client": "mongo --port 27017",
+      "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run mongo-server\" \"npm run mongo-client\""
+   },
+   "author": "",
+   "license": "ISC",
+   "description": "",
+   "dependencies": {
+      "body-parser": "^1.19.1",
+      "concurrently": "^7.0.0",
+      "cookie-parser": "^1.4.6",
+      "cors": "^2.8.5",
+      "dotenv": "^12.0.4",
+      "express": "^4.17.2",
+      "mongodb": "^4.3.1",
+      "mongodb-rest": "^0.10.14",
+      "mongoose": "^6.1.7",
+      "nodemailer": "^6.7.2",
+      "nodemailer-smtp-transport": "^2.7.4",
+      "react-router": "6.2.1",
+      "react-router-dom": "^6.2.1"
+   },
+   "devDependencies": {
+      "nodemon": "^2.0.15"
+   }
+}
