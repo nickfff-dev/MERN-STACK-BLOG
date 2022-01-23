@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import axios from 'axios'
 import App from './App';
 import Home from './Home';
-
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 class Signin extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class Signin extends React.Component {
       email: '',
       password: '',
       loggedin: false,
+     
       
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,6 +33,7 @@ class Signin extends React.Component {
 
    }
 
+ 
     handleSubmit(event) {
         const _this = this
         
@@ -45,9 +47,10 @@ class Signin extends React.Component {
         
         axios.post('/api/login', data)
         .then((res, error)=>{
-            if (res.data === "Login successfull") {
+            if (res.data.message === "Login successfull") {
                 _this.changeLoggedIn()
                 alert("Signin successfully")
+                window.location.assign('http://localhost:3000/')
                 
             } else {
                 alert("Signin failed")
@@ -92,9 +95,9 @@ class Signin extends React.Component {
 
 render(){
   
+  
     return(
-       <>
-               {!this.state.loggedin ? <div className='container card form mt-5'> 
+       
                 <form id="login-form" onSubmit={this.handleSubmit} method='POST'>
         <h3>Sign In</h3>
 
@@ -125,8 +128,7 @@ render(){
             Forgot <a href="#">password?</a>
         </p>
     </form>
-               </div>  : <Home/>}
-               </>
+               
            
 
        

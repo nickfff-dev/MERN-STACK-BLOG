@@ -3,14 +3,16 @@ const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const path = require('path');
-const MongoClient = require('mongodb')
 const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const cookieParser = require('cookie-parser')
 
 
 
 
 require('dotenv').config();
+
 
 
 const PORT = process.env.PORT;
@@ -25,6 +27,7 @@ app.use('/client', express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
 
 // You can choose different endpoint like /email, /mail or anything
 const MONGO_USERNAME = 'nastech';
@@ -35,13 +38,46 @@ const MONGO_DB = 'blog';
 const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=blog`;
 const conn = mongoose.createConnection(url, { useNewUrlParser: true });
 
+ mongoose.connect(url, { useNewUrlParser: true });
 conn.on('connected', function() {
   console.log('database is connected successfully');
 });
+
 conn.on('disconnected',function(){
   console.log('database is disconnected successfully');
 })
+
 conn.on('error', console.error.bind(console, 'connection error:'));
+
+var hour = 3600000;
+
+app.use(session({secret: 'user_sess',  saveUninitialized: false, rolling: true, resave: true, cookie:{maxAge: hour, sameSite: true, httpOnly: false, expires: new Date(Date.now() + hour)}, store: conn})).post('/api/login', (req,res)=>{
+  const {name , email, password} = req.body;
+
+  console.log(req.protocol)
+  conn.collection('users').findOne({name, email, password}, (err, result)=>{
+      if(err)
+       {res.status(404).send(err)}
+       else if(result){
+        req.session.save(function(error){
+          if(error){
+            console.log(error);
+          }
+        })
+          res.json({message: 'Login successfull', user: result.name});
+
+          
+          console.log(req.session);
+      }else{
+          res.status(200).send('Login failed');
+      }
+  })
+
+ 
+}
+)
+
+
 
 app.post('/api/signup', (req,res)=>{
     const {name, email, password} = req.body;
@@ -53,29 +89,14 @@ app.post('/api/signup', (req,res)=>{
         }else{
             conn.collection('users').insertOne({name: name, email: email, password: password}, (err, result)=>{
                 if(err) {res.status(404).send(err)};
+                
                 res.status(200).send('Signup successfull')
             })
         }
     })
 })
 
-app.post('/api/login', (req,res)=>{
-    const {name , email, password} = req.body;
-    conn.collection('users').findOne({name, email, password}, (err, result)=>{
-        if(err)
-         {res.status(404).send(err)} 
-         else if(result){
-            res.status(200).send('Login successfull');
-        }else{
-            res.status(200).send('Login failed');
-        }
-         
-       
-        
 
-    })
-}
-)
 
 
 
