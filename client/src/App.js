@@ -26,7 +26,7 @@ class App extends React.Component {
         
        <Route exact path="/faqs"  element={<Mainfaqss/>} /> 
         <Route exact path="/"   element={<Home /> } />
-        <Route exact path="/signup"  element={<Signup />} />
+        <Route exact path="/signup"  element={< Signup />} />
         <Route exact path="/signin"  element={<Signin />} />
        </Routes>
         </Router>

@@ -50,7 +50,7 @@ class Signin extends React.Component {
             if (res.data.message === "Login successfull") {
                 _this.changeLoggedIn()
                 alert("Signin successfully")
-                window.location.assign('http://localhost:3000/')
+                
                 
             } else {
                 alert("Signin failed")
@@ -97,7 +97,8 @@ render(){
   
   
     return(
-       
+     <>
+     {this.state.loggedin ? <Home /> :    
                 <form id="login-form" onSubmit={this.handleSubmit} method='POST'>
         <h3>Sign In</h3>
 
@@ -127,7 +128,9 @@ render(){
         <p className="forgot-password text-right">
             Forgot <a href="#">password?</a>
         </p>
-    </form>
+    </form>}
+     
+     </>
                
            
 
