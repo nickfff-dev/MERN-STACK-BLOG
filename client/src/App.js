@@ -4,7 +4,6 @@ import Signin from './Signin';
 import Home from './Home';
 import Mainfaqss from "./Mainfaqss";
 import Postslist from "./Postslist";
-import Blog from "./Blog";
 import BlogArticle from "./BlogArticle";
 import cardsdata from "./cardsdata";
 
@@ -44,8 +43,10 @@ class App extends React.Component {
        
         
          <Router>
+           
         
            <Routes>
+          
            {this.state.posts.map(post => (
                          
                         

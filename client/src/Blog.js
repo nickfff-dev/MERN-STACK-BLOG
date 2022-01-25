@@ -26,18 +26,18 @@ class Blog extends React.Component{
 
     render(){
         return(
-                <Router>
-                <Routes>
+                <>
+          
                     {this.state.posts.map(post => (
                          
                         
-                            <Route exact path={this.tuja(post.title)} element={<BlogArticle key={post.id} title={post.title} body={post.body} author={post.author} date={post.date} src={post.src}/>} />
+                            <BlogArticle key={post.id} title={post.title} body={post.body} author={post.author} date={post.date} src={post.src}/>
                         
 
                         
                     ))}
-                </Routes>
-                </Router>
+              
+                </>
 
 
 

@@ -1,7 +1,9 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import Posts from './Posts';
 import carddata from './cardsdata';
+import Header from './Header';
+import Footer from './Footer';
+import './Posts.css'
 
 
 class Postslist extends React.Component{
@@ -14,6 +16,8 @@ class Postslist extends React.Component{
     render(){
        return(
         <div className='container-fluid'>
+            <Header/>
+
         <div className='row'>
             {this.state.posts.map(post => (
                 
@@ -23,6 +27,8 @@ class Postslist extends React.Component{
                 
             ))}
         </div>
+        <Footer/>
+
     </div>
        )
     }
