@@ -49,7 +49,7 @@ render(){
 
                     <li>
                         
-                        <Link to="/"><span className="border-left p-2 border-dark border-dark ">Start</span></Link> 
+                        <Link to="/postlist"><span className="border-left p-2 border-dark border-dark ">Start</span></Link> 
                         
                         
                     </li> 

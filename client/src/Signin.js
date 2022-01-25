@@ -35,9 +35,10 @@ class Signin extends React.Component {
 
  
     handleSubmit(event) {
+        event.preventDefault();
         const _this = this
         
-        event.preventDefault();
+        
         const data ={
             name: this.state.name,
             email: this.state.email,
