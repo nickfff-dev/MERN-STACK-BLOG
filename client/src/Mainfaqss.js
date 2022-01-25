@@ -2,9 +2,6 @@ import React from 'react';
 import data from './data'
 import Mainfaq from './Mainfaq'
 import Header from './Header';
-import Signin from './Signin';
-import Signup from './Signup';
-
 
 class Mainfaqss extends React.Component{
     constructor(props){
@@ -22,7 +19,7 @@ render(){
             
             <div className='container'>  
             <div className='row' >  
-            <Signin/>
+           
            
              <div className='col-sm-12'>
                 <h2 className='p-4'>Frequently asked questions</h2>

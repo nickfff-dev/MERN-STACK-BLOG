@@ -311,3 +311,15 @@ dd{
   
   border-radius: 4px;
 }
+
+
+.meta{
+  color: white
+}
+
+
+.artti{
+  color: #00ffff;
+  font-weight: bold;
+  font-size: 25px;
+}
