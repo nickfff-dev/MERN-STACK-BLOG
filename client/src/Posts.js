@@ -22,8 +22,9 @@ class Posts extends React.Component {
     kuja(smtxt){
         var moto = encodeURIComponent(smtxt)
 
-        var uri  = `/Blog/${moto}`
-        console.log(uri)
+        var uri  = `/${moto}`
+       
+      
         return uri
 
 

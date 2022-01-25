@@ -18,7 +18,7 @@ class Blog extends React.Component{
     tuja(smtxt){
         var moto = encodeURIComponent(smtxt)
 
-        var uri  = `/Blog/${moto}`
+        var uri  = `/${moto}`
         return uri
 
 
@@ -44,3 +44,5 @@ class Blog extends React.Component{
         )
     }
 }
+
+export default Blog;
