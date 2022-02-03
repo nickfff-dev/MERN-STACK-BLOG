@@ -35,10 +35,9 @@ const MONGO_PASSWORD = 'nas8732';
 const MONGO_HOSTNAME = '127.0.0.1';
 const MONGO_PORT = '27017';
 const MONGO_DB = 'blog';
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=blog`;
-const conn = mongoose.createConnection(url, { useNewUrlParser: true });
+const MONGO_URL =  "mongodb+srv://nasir:5pcEwh7TQRtxQSK@cluster0.74zah.mongodb.net/blog?retryWrites=true&w=majority"
+const conn = mongoose.createConnection(MONGO_URL, { useNewUrlParser: true });
 
- mongoose.connect(url, { useNewUrlParser: true });
 conn.on('connected', function() {
   console.log('database is connected successfully');
 });
@@ -51,7 +50,7 @@ conn.on('error', console.error.bind(console, 'connection error:'));
 
 var hour = 3600000;
 
-app.use(session({secret: 'user_sess',  saveUninitialized: false, rolling: true, resave: true, cookie:{maxAge: hour, sameSite: true, httpOnly: false, expires: new Date(Date.now() + hour)}, store: conn})).post('/api/login', (req,res)=>{
+app.use(session({secret: 'user_sess',  saveUninitialized: false, rolling: true, resave: true, cookie:{maxAge: hour,  httpOnly: false, expires: new Date(Date.now() + hour)}, store: conn})).post('/api/login', (req,res)=>{
   const {name , email, password} = req.body;
 
   console.log(req.protocol)

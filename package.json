@@ -6,9 +6,8 @@
       "start": "node index.js",
       "server": "nodemon index.js",
       "client": "npm start --prefix client",
-      "mongo-server": "mongod  --dbpath ./data/db",
-      "mongo-client": "mongo --port 27017",
-      "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run mongo-server\" \"npm run mongo-client\""
+     
+      "dev": "concurrently \"npm run server\" \"npm run client\""
    },
    "author": "",
    "license": "ISC",

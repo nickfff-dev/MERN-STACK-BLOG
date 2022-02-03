@@ -1,18 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const MONGO_USERNAME = 'nastech';
-const MONGO_PASSWORD = 'nas8732';
-const MONGO_HOSTNAME = '127.0.0.1';
-const MONGO_PORT = '27017';
-const MONGO_DB = 'blog';
 
 
 
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=blog`;
+const MONGO_URL =  "mongodb+srv://nasir:5pcEwh7TQRtxQSK@cluster0.74zah.mongodb.net/blog?retryWrites=true&w=majority"
 
   
-const conn = mongoose.createConnection(url, { useNewUrlParser: true });
+const conn = mongoose.createConnection(MONGO_URL, { useNewUrlParser: true });
 
 
 const userSchema = new Schema({
